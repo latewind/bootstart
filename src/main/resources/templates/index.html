@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/static/a.js"></script>
+</head>
+<body>
+<p>Thymeleaf是一个用于Web和独立环境的现代服务器端Java模板引擎。SpringBoot推荐使用Thymeleaf。</p>
+<p>下面是表格示例：</p>
+<table border="1">
+    <thead>
+        <tr>
+            <th width="100">ID</th>
+            <th width="100">姓名</th>
+            <th width="100">性别</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user:${userList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.userName}"></td>
+            <td th:text="${user.userSex}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
