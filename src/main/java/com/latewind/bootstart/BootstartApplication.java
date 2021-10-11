@@ -3,6 +3,7 @@ package com.latewind.bootstart;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @MapperScan("com.latewind.bootstart.info.dao")
 @EnableWebMvc
 @EnableCaching
+@ServletComponentScan
 public class BootstartApplication {
 
 	public static void main(String[] args) {
