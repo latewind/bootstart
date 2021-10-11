@@ -112,4 +112,5 @@ public class UserController {
 		System.out.println("缓存不存在，执行方法");
 		return userDao.getOne(id);
 	}
+	
 }

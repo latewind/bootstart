@@ -11,4 +11,10 @@ public class PortalController {
 
 		return "Hello World";
 	}
+	
+	@RequestMapping("/helloBoot")
+	public String helloBoot() {
+
+		return "HELLO BOOT";
+	}
 }
