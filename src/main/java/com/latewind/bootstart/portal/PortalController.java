@@ -17,4 +17,16 @@ public class PortalController {
 
 		return "HELLO BOOT";
 	}
+	
+	/**
+	 * 产生错误
+	 * @return
+	 */
+	@RequestMapping("/occorError")
+	public String occorError() {
+		int a = 1;
+		int b = 0;
+		a = a/b;
+		return "";
+	}
 }
