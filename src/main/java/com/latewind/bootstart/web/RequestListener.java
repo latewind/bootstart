@@ -6,14 +6,18 @@ import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 import javax.servlet.annotation.WebListener;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @WebListener
 public class RequestListener implements ServletRequestListener, ServletRequestAttributeListener {
+	private Logger logger = LoggerFactory.getLogger(RequestListener.class);
 	/**
 	 * 请求即将进入Web应用程序的范围/请求初始化时
 	 */
 	@Override
 	public void requestInitialized(ServletRequestEvent sre) {
-		System.out.println("===> request initialized");
+		logger.debug("===> request initialized");
 	}
 
 	/**
@@ -21,7 +25,7 @@ public class RequestListener implements ServletRequestListener, ServletRequestAt
 	 */
 	@Override
 	public void requestDestroyed(ServletRequestEvent sre) {
-		System.out.println("===> request destroyed");
+		logger.debug("===> request destroyed");
 	}
 
 	/**
@@ -29,7 +33,7 @@ public class RequestListener implements ServletRequestListener, ServletRequestAt
 	 */
 	@Override
 	public void attributeAdded(ServletRequestAttributeEvent srae) {
-		System.out.println("===> request attribute added");
+		logger.debug("===> request attribute added");
 	}
 
 	/**
@@ -37,7 +41,7 @@ public class RequestListener implements ServletRequestListener, ServletRequestAt
 	 */
 	@Override
 	public void attributeRemoved(ServletRequestAttributeEvent srae) {
-		System.out.println("===> request attribute removed");
+		logger.debug("===> request attribute removed");
 	}
 
 	/**
@@ -45,6 +49,6 @@ public class RequestListener implements ServletRequestListener, ServletRequestAt
 	 */
 	@Override
 	public void attributeReplaced(ServletRequestAttributeEvent srae) {
-		System.out.println("===> request attribute replaced");
+		logger.debug("===> request attribute replaced");
 	}
 }

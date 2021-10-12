@@ -8,16 +8,20 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionIdListener;
 import javax.servlet.http.HttpSessionListener;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @WebListener
 public class SessionListener implements HttpSessionListener, HttpSessionIdListener, HttpSessionAttributeListener,
 		HttpSessionActivationListener {
+	private Logger logger = LoggerFactory.getLogger(RequestListener.class);
 
 	/**
 	 * session被创建时
 	 */
 	@Override
 	public void sessionCreated(HttpSessionEvent se) {
-		System.out.println("===> session created");
+		logger.debug("===> session created");
 	}
 
 	/**
@@ -25,7 +29,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 	 */
 	@Override
 	public void sessionDestroyed(HttpSessionEvent se) {
-		System.out.println("===> session destroyed");
+		logger.debug("===> session destroyed");
 	}
 
 	/**
@@ -33,7 +37,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 	 */
 	@Override
 	public void sessionIdChanged(HttpSessionEvent se, String oldSessionId) {
-		System.out.println("===> session id changed");
+		logger.debug("===> session id changed");
 	}
 
 	/**
@@ -41,7 +45,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 	 */
 	@Override
 	public void attributeAdded(HttpSessionBindingEvent se) {
-		System.out.println("===> session attribute added");
+		logger.debug("===> session attribute added");
 	}
 
 	/**
@@ -49,7 +53,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 	 */
 	@Override
 	public void attributeRemoved(HttpSessionBindingEvent se) {
-		System.out.println("===> session attribute removed");
+		logger.debug("===> session attribute removed");
 	}
 
 	/**
@@ -57,7 +61,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 	 */
 	@Override
 	public void attributeReplaced(HttpSessionBindingEvent se) {
-		System.out.println("===> session attribute replaced");
+		logger.debug("===> session attribute replaced");
 	}
 
 	/**
@@ -65,7 +69,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 	 */
 	@Override
 	public void sessionWillPassivate(HttpSessionEvent se) {
-		System.out.println("===> session will passivate");
+		logger.debug("===> session will passivate");
 	}
 
 	/**
@@ -73,7 +77,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 	 */
 	@Override
 	public void sessionDidActivate(HttpSessionEvent se) {
-		System.out.println("===> session did activate");
+		logger.debug("===> session did activate");
 	}
 
 }

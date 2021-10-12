@@ -7,17 +7,21 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @WebListener
 public class ContextListener implements ServletContextListener, ServletContextAttributeListener {
 
 	public static final String INITIAL_CONTENT = "Content created in servlet Context";
-
+	
+	private Logger logger = LoggerFactory.getLogger(ContextListener.class);
 	/**
 	 * ServletContext创建
 	 */
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		System.out.println("===> context initialized");
+		logger.debug("===> context initialized");
 		ServletContext servletContext = sce.getServletContext();
 		servletContext.setAttribute("content", INITIAL_CONTENT);
 	}
@@ -27,7 +31,7 @@ public class ContextListener implements ServletContextListener, ServletContextAt
 	 */
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		System.out.println("===> context destroyed");
+		logger.debug("===> context destroyed");
 	}
 
 	/**
@@ -35,7 +39,7 @@ public class ContextListener implements ServletContextListener, ServletContextAt
 	 */
 	@Override
 	public void attributeAdded(ServletContextAttributeEvent scae) {
-		System.out.println("===> context attribute added");
+		logger.debug("===> context attribute added");
 	}
 
 	/**
@@ -43,7 +47,7 @@ public class ContextListener implements ServletContextListener, ServletContextAt
 	 */
 	@Override
 	public void attributeRemoved(ServletContextAttributeEvent scae) {
-		System.out.println("===> context attribute removed");
+		logger.debug("===> context attribute removed");
 	}
 
 	/**
@@ -51,6 +55,6 @@ public class ContextListener implements ServletContextListener, ServletContextAt
 	 */
 	@Override
 	public void attributeReplaced(ServletContextAttributeEvent scae) {
-		System.out.println("===> context attribute replaced");
+		logger.debug("===> context attribute replaced");
 	}
 }

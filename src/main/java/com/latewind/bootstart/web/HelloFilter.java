@@ -12,9 +12,13 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @WebFilter("/helloServlet")
 public class HelloFilter extends HttpFilter {
 
+	private Logger logger = LoggerFactory.getLogger(HelloFilter.class);
 	/**
 	 * 
 	 */
@@ -25,7 +29,7 @@ public class HelloFilter extends HttpFilter {
 	 */
 	@Override
 	public void init(FilterConfig filterConfig) {
-		System.out.println("===> TestFilter init");
+		logger.debug("===> TestFilter init");
 	}
 
 	/**
@@ -36,7 +40,7 @@ public class HelloFilter extends HttpFilter {
 			throws IOException, ServletException {
 
 		chain.doFilter(request, response);// 处理请求和响应的分界线
-		System.out.println("===> chain.doFilter 后执行处理 response 的相关方法");
+		logger.debug("===> chain.doFilter 后执行处理 response 的相关方法");
 		// 在response header里设置一个token
 		setToken(response);
 
@@ -46,7 +50,7 @@ public class HelloFilter extends HttpFilter {
 		HttpServletResponse res = (HttpServletResponse) response;
 		String token = UUID.randomUUID().toString();
 		res.setHeader("Token", token);
-		System.out.println("===> 设置了token：" + token);
+		logger.debug("===> 设置了token：" + token);
 	}
 
 	/**
@@ -54,7 +58,7 @@ public class HelloFilter extends HttpFilter {
 	 */
 	@Override
 	public void destroy() {
-		System.out.println("===> TestFilter destroy");
+		logger.debug("===> TestFilter destroy");
 	}
 
 }
