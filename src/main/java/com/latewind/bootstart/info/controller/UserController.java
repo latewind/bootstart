@@ -12,8 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.latewind.bootstart.info.bean.UserEntity;
 import com.latewind.bootstart.info.dao.UserDao;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/user")
+@Api(tags = { "接口分组1", "接口分组2" })
 public class UserController {
 
 	@Autowired
@@ -26,6 +30,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/getAll")
+	@ApiOperation(value = "获取所有用户", notes = "", httpMethod = "GET", tags = "接口分组3")
 	public List<UserEntity> getAll() {
 		return userDao.getAll();
 	}
