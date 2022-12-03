@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebListener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
 
 @WebListener
 public class ContextListener implements ServletContextListener, ServletContextAttributeListener {
@@ -21,7 +22,7 @@ public class ContextListener implements ServletContextListener, ServletContextAt
 	 */
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		logger.debug("===> context initialized");
+		logger.error("===> context initialized");
 		ServletContext servletContext = sce.getServletContext();
 		servletContext.setAttribute("content", INITIAL_CONTENT);
 	}
@@ -31,7 +32,7 @@ public class ContextListener implements ServletContextListener, ServletContextAt
 	 */
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		logger.debug("===> context destroyed");
+		logger.error("===> context destroyed");
 	}
 
 	/**

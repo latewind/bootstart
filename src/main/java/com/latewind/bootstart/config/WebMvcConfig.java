@@ -21,8 +21,8 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 	protected void addViewControllers(ViewControllerRegistry registry) {
 		// TODO Auto-generated method stub
 		registry.addViewController("/").setViewName("/index");
-        registry.addViewController("/error/404").setViewName("/error/404"); 
-        registry.addViewController("/error/500").setViewName("/error/500");
+		registry.addViewController("/error/404").setViewName("/error/404");
+		registry.addViewController("/error/500").setViewName("/error/500");
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		super.addViewControllers(registry);
 	}
@@ -32,7 +32,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 		// TODO Auto-generated method stub
 		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
 		registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 		registry.addResourceHandler("templates/**").addResourceLocations("classpath:/templates/");
 		super.addResourceHandlers(registry);
 	}
@@ -42,7 +42,5 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 		// TODO Auto-generated method stub
 		super.addInterceptors(registry);
 	}
-	
-	
 
 }
